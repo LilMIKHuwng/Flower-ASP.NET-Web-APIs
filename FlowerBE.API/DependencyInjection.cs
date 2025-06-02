@@ -54,6 +54,17 @@ namespace FlowerBE.API
         {
             services
                 .AddScoped<IRoleService, RoleService>();
+
+
+            services
+                .AddScoped<ICategoryService, CategoryService>();
+
+            services
+                .AddScoped<IFlowerTypeService, FlowerTypeService>();
+
+
+            services
+                .AddScoped<IUserService, UserService>();
         }
 
         public static void AddAutoMapperProfiles(this IServiceCollection services)

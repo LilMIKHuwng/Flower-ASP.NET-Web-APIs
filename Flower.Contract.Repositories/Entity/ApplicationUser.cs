@@ -6,6 +6,7 @@ namespace Flower.Repositories.Entity
 {
     public class ApplicationUser : IdentityUser<int>
     {
+
         public string? FullName { get; set; }
         public int? Age { get; set; }
         public string? AvatarUrl { get; set; }

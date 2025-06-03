@@ -128,6 +128,89 @@ namespace Flower.Repositories.Context
                 new ApplicationUserRole { UserId = 3, RoleId = 3 }  // Staff
             );
 
+            var firebaseImageUrls = new List<string>
+            {
+                "https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest1.png?alt=media&token=0c05a2e7-869d-4e0c-98b2-41dd842fe90c",
+                "https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest2.png?alt=media&token=cc65bd49-e3df-4a51-b513-c7bb534b63d4",
+                "https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest3.png?alt=media&token=e239b164-1d55-437b-889d-19781c61a8b0",
+                "https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest4.png?alt=media&token=1a0da7ef-2eb3-48e9-a9de-1e2866fe8752",
+                "https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest5.png?alt=media&token=b2b2f296-f847-4c95-96d3-50ae7fc827a0"
+            };
+
+            builder.Entity<Category>().HasData(
+                new Category { Id = 1, CategoryName = "Roses", CreatedTime = DateTimeOffset.Now, LastUpdatedTime = DateTimeOffset.Now },
+                new Category { Id = 2, CategoryName = "Lilies", CreatedTime = DateTimeOffset.Now, LastUpdatedTime = DateTimeOffset.Now },
+                new Category { Id = 3, CategoryName = "Tulips", CreatedTime = DateTimeOffset.Now, LastUpdatedTime = DateTimeOffset.Now },
+                new Category { Id = 4, CategoryName = "Sunflowers", CreatedTime = DateTimeOffset.Now, LastUpdatedTime = DateTimeOffset.Now },
+                new Category { Id = 5, CategoryName = "Orchids", CreatedTime = DateTimeOffset.Now, LastUpdatedTime = DateTimeOffset.Now }
+            );
+
+
+            builder.Entity<FlowerType>().HasData(
+                new FlowerType
+                {
+                    Id = 1,
+                    Name = "Red Rose",
+                    Description = "Classic red rose symbolizing love",
+                    Price = 5.99m,
+                    Stock = 100,
+                    CategoryID = 1,
+                    CreatedTime = DateTimeOffset.Now,
+                    LastUpdatedTime = DateTimeOffset.Now,
+                    ImageURLs = firebaseImageUrls,
+                },
+                new FlowerType
+                {
+                    Id = 2,
+                    Name = "White Lily",
+                    Description = "Elegant white lily for sympathy and peace",
+                    Price = 7.49m,
+                    Stock = 80,
+                    CategoryID = 2,
+                    CreatedTime = DateTimeOffset.Now,
+                    LastUpdatedTime = DateTimeOffset.Now,
+                    ImageURLs = firebaseImageUrls,
+                },
+                new FlowerType
+                {
+                    Id = 3,
+                    Name = "Pink Tulip",
+                    Description = "Bright and colorful tulips for any occasion",
+                    Price = 4.50m,
+                    Stock = 150,
+                    CategoryID = 3,
+                    CreatedTime = DateTimeOffset.Now,
+                    LastUpdatedTime = DateTimeOffset.Now,
+                    ImageURLs = firebaseImageUrls,
+                },
+                new FlowerType
+                {
+                    Id = 4,
+                    Name = "Sunflower",
+                    Description = "Cheerful sunflower for happy vibes",
+                    Price = 3.99m,
+                    Stock = 120,
+                    CategoryID = 4,
+                    CreatedTime = DateTimeOffset.Now,
+                    LastUpdatedTime = DateTimeOffset.Now,
+                    ImageURLs = firebaseImageUrls,
+                },
+                new FlowerType
+                {
+                    Id = 5,
+                    Name = "Purple Orchid",
+                    Description = "Delicate and exotic orchid",
+                    Price = 9.99m,
+                    Stock = 70,
+                    CategoryID = 5,
+                    CreatedTime = DateTimeOffset.Now,
+                    LastUpdatedTime = DateTimeOffset.Now,
+                    ImageURLs = firebaseImageUrls,
+                }
+            );
+
+
+
         }
 
     }

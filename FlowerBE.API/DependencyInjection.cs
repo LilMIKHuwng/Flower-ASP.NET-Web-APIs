@@ -53,17 +53,12 @@ namespace FlowerBE.API
         public static void AddServices(this IServiceCollection services)
         {
             services
-                .AddScoped<IRoleService, RoleService>();
-
-
-            services
-                .AddScoped<ICategoryService, CategoryService>();
-
-            services
-                .AddScoped<IFlowerTypeService, FlowerTypeService>();
-
-
-            services
+                .AddScoped<IRoleService, RoleService>()
+                .AddScoped<IRealTimeService, RealTimeService>()
+                .AddScoped<ICategoryService, CategoryService>()
+                .AddScoped<IFlowerTypeService, FlowerTypeService>()
+                .AddScoped<ICartItemService, CartItemService>()
+                .AddScoped<IOrderService, OrderService>()
                 .AddScoped<IUserService, UserService>();
         }
 

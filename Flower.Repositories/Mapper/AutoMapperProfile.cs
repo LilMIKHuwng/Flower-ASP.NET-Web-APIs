@@ -1,8 +1,11 @@
 using AutoMapper;
 using Flower.Contract.Repositories.Entity;
+using Flower.ModelViews.CartItemModelView;
 using Flower.ModelViews.CategoryModelViews;
 using Flower.ModelViews.FlowerTypeModelViews;
+using Flower.ModelViews.OrderModelViews;
 using Flower.ModelViews.RoleModelViews;
+using Flower.ModelViews.UserMessage;
 using Flower.ModelViews.UserModelViews;
 using Flower.Repositories.Entity;
 
@@ -32,23 +35,16 @@ namespace Flower.Repositories.Mapper
             CreateMap<FlowerType, FlowerTypeUpdateModelView>().ReverseMap();
 
             //Message
-            /*CreateMap<UserMessage, ChatMessageModelView>().ReverseMap();
-            CreateMap<ApplicationUser, UserResponseModel>().ReverseMap();
+            CreateMap<UserMessage, ChatMessageModelView>().ReverseMap();
 
-            //User
-            CreateMap<ApplicationUser, UserLoginResponseModel>().ReverseMap();
-            CreateMap<ApplicationUser, UserResponseModel>().ReverseMap();
-            CreateMap<ApplicationUser, UpdateUserProfileRequest>().ReverseMap();*/
+            //FlowerType
+            CreateMap<CartItem, CartItemModelView>().ReverseMap();
+            CreateMap<CartItem, CreateCartItemModelView>().ReverseMap();
+            CreateMap<CartItem, UpdateCartItemModelView>().ReverseMap();
 
-            //Employee
-            /*CreateMap<EmployeeLoginResponseModel, ApplicationUser>().ReverseMap();
-            CreateMap<CreateEmployeeRequest, ApplicationUser>().ReverseMap();
-            CreateMap<UpdateEmployeeProfileRequest, ApplicationUser>().ReverseMap();
-            CreateMap<ApplicationUser, EmployeeResponseModel>()
-                .ForMember(dest => dest.Role, opt => opt.MapFrom(src => src.UserRoles.FirstOrDefault().Role))
-                .ReverseMap()
-                .ForMember(dest => dest.UserRoles, opt => opt.Ignore());*/
-
+            //FlowerType
+            CreateMap<Order, OrderModelView>().ReverseMap();
+            CreateMap<Order, CreateOrderModelView>().ReverseMap();
 
         }
     }

@@ -13,6 +13,7 @@ namespace Flower.Contract.Repositories.Entity
         public int UserID { get; set; }
         public int FlowerID { get; set; }
         public int Quantity { get; set; }
+        public decimal UnitPrice { get; set; }
         public DateTime AddedAt { get; set; } = DateTime.Now;
 
         public virtual ApplicationUser User { get; set; }

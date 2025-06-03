@@ -13,7 +13,7 @@ namespace Flower.Contract.Repositories.Entity
         public int FlowerID { get; set; }
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
-
+        public decimal TotalPrice { get; set; }
         public virtual Order Order { get; set; }
         public virtual FlowerType Flower { get; set; }
     }

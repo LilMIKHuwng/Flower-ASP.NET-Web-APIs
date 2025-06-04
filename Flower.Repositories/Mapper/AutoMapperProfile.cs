@@ -3,7 +3,9 @@ using Flower.Contract.Repositories.Entity;
 using Flower.ModelViews.CartItemModelView;
 using Flower.ModelViews.CategoryModelViews;
 using Flower.ModelViews.FlowerTypeModelViews;
+using Flower.ModelViews.OrderDetailModelViews;
 using Flower.ModelViews.OrderModelViews;
+using Flower.ModelViews.PaymentModelViews;
 using Flower.ModelViews.RoleModelViews;
 using Flower.ModelViews.UserMessage;
 using Flower.ModelViews.UserModelViews;
@@ -42,9 +44,16 @@ namespace Flower.Repositories.Mapper
             CreateMap<CartItem, CreateCartItemModelView>().ReverseMap();
             CreateMap<CartItem, UpdateCartItemModelView>().ReverseMap();
 
-            //FlowerType
+            //Order
             CreateMap<Order, OrderModelView>().ReverseMap();
             CreateMap<Order, CreateOrderModelView>().ReverseMap();
+
+            //OrderDetail
+            CreateMap<OrderDetail, OrderDetailModelView>().ReverseMap();
+
+            //Payment
+            CreateMap<Payment, PaymentModelView>().ReverseMap();
+            CreateMap<Payment, CreatePaymentModelView>().ReverseMap();
 
         }
     }

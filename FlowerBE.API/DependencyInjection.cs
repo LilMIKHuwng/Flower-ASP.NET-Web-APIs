@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Security.Claims;
+using TeamUp.Services.Service;
+using VNPAY.NET;
 
 namespace FlowerBE.API
 {
@@ -59,6 +61,9 @@ namespace FlowerBE.API
                 .AddScoped<IFlowerTypeService, FlowerTypeService>()
                 .AddScoped<ICartItemService, CartItemService>()
                 .AddScoped<IOrderService, OrderService>()
+                .AddScoped<IOrderDetailService, OrderDetailService>()
+                .AddScoped<IPaymentService, PaymentService>()
+                .AddScoped<IVnpay, Vnpay>()
                 .AddScoped<IUserService, UserService>();
         }
 

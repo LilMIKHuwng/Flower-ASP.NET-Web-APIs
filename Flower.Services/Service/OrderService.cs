@@ -176,6 +176,21 @@ namespace Flower.Services.Service
             return new ApiSuccessResult<BasePaginatedList<OrderModelView>>(
                 new BasePaginatedList<OrderModelView>(result, totalCount, pageNumber, pageSize));
         }
+
+
+        public async Task<ApiResult<int>> GetLatestOrderIdByUserAsync(int userId)
+        {
+            var latestOrder = await _unitOfWork.GetRepository<Order>().Entities
+                .Where(o => o.UserID == userId)
+                .OrderByDescending(o => o.CreatedTime)
+                .FirstOrDefaultAsync();
+
+            if (latestOrder == null)
+                return new ApiErrorResult<int>("Người dùng chưa có đơn hàng nào.");
+
+            return new ApiSuccessResult<int>(latestOrder.Id);
+        }
+
     }
 
 

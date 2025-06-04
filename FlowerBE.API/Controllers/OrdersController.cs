@@ -88,5 +88,24 @@ namespace FlowerBE.API.Controllers
                 return BadRequest(new ApiErrorResult<object>(ex.Message));
             }
         }
+
+
+        /// <summary>
+        /// Get latest order ID by user
+        /// </summary>
+        [HttpGet("latest-order-id")]
+        public async Task<ActionResult<ApiResult<int>>> GetLatestOrderId([FromQuery] int userId)
+        {
+            try
+            {
+                var result = await _orderService.GetLatestOrderIdByUserAsync(userId);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ApiErrorResult<object>(ex.Message));
+            }
+        }
+
     }
 }

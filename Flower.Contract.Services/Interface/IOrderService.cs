@@ -16,5 +16,6 @@ namespace Flower.Contract.Services.Interface
         Task<ApiResult<List<OrderModelView>>> GetAllOrdersAsync(int? userId, string? status);
         Task<ApiResult<BasePaginatedList<OrderModelView>>> GetAllOrdersPaginatedAsync(
             int pageNumber, int pageSize, int? userId, string? status);
+        Task<ApiResult<int>> GetLatestOrderIdByUserAsync(int userId);
     }
 }

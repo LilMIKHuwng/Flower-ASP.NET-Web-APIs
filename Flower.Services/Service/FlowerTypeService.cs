@@ -110,7 +110,7 @@ namespace Flower.Services.Service
             }
         }
 
-        public async Task<ApiResult<BasePaginatedList<FlowerTypeModelView>>> GetPaging(int pageNumber, int pageSize, string? name, int? id)
+        public async Task<ApiResult<BasePaginatedList<FlowerTypeModelView>>> GetPaging(int pageNumber, int pageSize, string? name, int? id, int? categoryId, string? categoryName)
         {
             try
             {
@@ -124,6 +124,14 @@ namespace Flower.Services.Service
                 if (!string.IsNullOrEmpty(name))
                 {
                     query = query.Where(x => x.Name.ToLower().Contains(name.ToLower()));
+                }
+                if(!string.IsNullOrEmpty(categoryName))
+                {
+                    query = query.Where(x => x.Category.CategoryName.ToLower().Contains(categoryName.ToLower()));
+                }
+                if(categoryId.HasValue)
+                {
+                    query = query.Where(x => x.CategoryID == categoryId.Value);
                 }
 
                 var totalRecords = await query.CountAsync();

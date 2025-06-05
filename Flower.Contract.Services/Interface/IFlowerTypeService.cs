@@ -13,7 +13,7 @@ namespace Flower.Contract.Services.Interface
     public interface IFlowerTypeService
     {
         Task<ApiResult<object>> CreateFlowerType(FlowerTypeCreateModelView model);
-        Task<ApiResult<BasePaginatedList<FlowerTypeModelView>>> GetPaging(int pageNumber, int pageSize, string? name, int? id);
+        Task<ApiResult<BasePaginatedList<FlowerTypeModelView>>> GetPaging(int pageNumber, int pageSize, string? name, int? id, int? categoryId, string? categoryName);
 
         Task<ApiResult<List<FlowerTypeModelView>>> GetAllFlowerTypes();
         Task<ApiResult<FlowerTypeModelView>> GetFlowerTypeById(int id);

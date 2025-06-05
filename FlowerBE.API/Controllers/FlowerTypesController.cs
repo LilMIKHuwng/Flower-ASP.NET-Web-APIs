@@ -67,11 +67,11 @@ namespace FlowerBE.API.Controllers
             }
         }
         [HttpGet("paging")]
-        public async Task<ActionResult<string>> GetPaging([FromQuery] int pageNumber, [FromQuery] int pageSize, [FromQuery] string? name, [FromQuery] int? id)
+        public async Task<ActionResult<string>> GetPaging([FromQuery] int pageNumber, [FromQuery] int pageSize, [FromQuery] string? name, [FromQuery] int? id, [FromQuery]int? categoryId, [FromQuery] string? categoryName)
         {
             try
             {
-                var result = await _flowerTypeService.GetPaging(pageNumber, pageSize, name, id);
+                var result = await _flowerTypeService.GetPaging(pageNumber, pageSize, name, id,categoryId,categoryName);
                 return Ok(result);
             }
             catch (Exception ex)

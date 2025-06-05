@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Flower.ModelViews.RoleModelViews;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace Flower.ModelViews.UserModelViews
         public int? CreatedBy { get; set; }
         public int? LastUpdatedBy { get; set; }
         public int? DeletedBy { get; set; }
+        public RoleModelView roleModelView { get; set; }
         public DateTimeOffset CreatedTime { get; set; } = DateTime.Now;
         public DateTimeOffset LastUpdatedTime { get; set; } = DateTime.Now;
         public DateTimeOffset? DeletedTime { get; set; }

@@ -214,12 +214,31 @@ namespace Flower.Services.Service
             // Kiểm tra trạng thái tài khoản
             if (!(user.Status == 1))
             {
-                return new ApiErrorResult<UserModelView>("Tài khoản hoặc mật khẩu không đúng");
+                return new ApiErrorResult<UserModelView>("Tài khoản của bạn đã bị khóa");
 
             }
 
 
-            var userDto = _mapper.Map<UserModelView>(user);
+            var userDto = new UserModelView()
+            {
+                Email = user.Email,
+                FullName = user.FullName,
+                Id = user.Id,
+                Age = user.Age,
+                AvatarUrl = user.AvatarUrl,
+                Username = user.UserName,
+                Status = user.Status,
+                CreatedBy = user.CreatedBy,
+                LastUpdatedBy = user.LastUpdatedBy,
+                CreatedTime = user.CreatedTime,
+                LastUpdatedTime = user.LastUpdatedTime,
+                DeletedTime = user.DeletedTime,
+                roleModelView = new ModelViews.RoleModelViews.RoleModelView
+                {
+                    Id = user.UserRoles.FirstOrDefault().RoleId,
+                    Name = user.UserRoles.FirstOrDefault().Role.Name
+                }
+            };
 
 
 

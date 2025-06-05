@@ -136,13 +136,15 @@ namespace Flower.Services.Service
 
         public async Task<ApiResult<object>> RegisterUser(UserRegisterModelView registerDTO)
         {
+
             // Check existed email
             var existingUser = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == registerDTO.Username);
             if (existingUser != null)
             {
                 return new ApiErrorResult<object>("Username is existed.", System.Net.HttpStatusCode.BadRequest);
             }
-            var existingUserEmail = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == registerDTO.Email);
+
+            var existingUserEmail = await _userManager.Users.FirstOrDefaultAsync(x => x.Email == registerDTO.Email);
             if (existingUserEmail != null)
             {
                 return new ApiErrorResult<object>("Email is existed.", System.Net.HttpStatusCode.BadRequest);
@@ -152,7 +154,8 @@ namespace Flower.Services.Service
                 UserName = registerDTO.Username,
                 FullName = registerDTO.FullName,
                 Age = registerDTO.Age,
-                Email = registerDTO.Email
+                Email = registerDTO.Email,
+                Status = 0
             };
             // Save user
             var result = await _userManager.CreateAsync(user, registerDTO.Password);

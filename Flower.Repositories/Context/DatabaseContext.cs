@@ -91,7 +91,8 @@ namespace Flower.Repositories.Context
                 Email = "admin@fpt.edu.vn",
                 NormalizedEmail = "ADMIN@FPT.EDU.VN",
                 EmailConfirmed = true,
-                SecurityStamp = Guid.NewGuid().ToString("D")
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                Status = 1,
             };
             admin.PasswordHash = hasher.HashPassword(admin, "Admin@123");
 
@@ -103,7 +104,8 @@ namespace Flower.Repositories.Context
                 Email = "user@fpt.edu.vn",
                 NormalizedEmail = "USER@FPT.EDU.VN",
                 EmailConfirmed = true,
-                SecurityStamp = Guid.NewGuid().ToString("D")
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                Status = 1,
             };
             user.PasswordHash = hasher.HashPassword(user, "User@123");
 
@@ -115,7 +117,8 @@ namespace Flower.Repositories.Context
                 Email = "staff@fpt.edu.vn",
                 NormalizedEmail = "STAFF@FPT.EDU.VN",
                 EmailConfirmed = true,
-                SecurityStamp = Guid.NewGuid().ToString("D")
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                Status = 1,
             };
             staff.PasswordHash = hasher.HashPassword(staff, "Staff@123");
 

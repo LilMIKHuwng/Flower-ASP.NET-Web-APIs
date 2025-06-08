@@ -79,24 +79,24 @@ namespace Flower.Repositories.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 39, 960, DateTimeKind.Unspecified).AddTicks(2763), new TimeSpan(0, 7, 0, 0, 0)),
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 39, 960, DateTimeKind.Unspecified).AddTicks(2765), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 35, 898, DateTimeKind.Unspecified).AddTicks(4192), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 35, 898, DateTimeKind.Unspecified).AddTicks(4193), new TimeSpan(0, 7, 0, 0, 0)),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 39, 960, DateTimeKind.Unspecified).AddTicks(2773), new TimeSpan(0, 7, 0, 0, 0)),
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 39, 960, DateTimeKind.Unspecified).AddTicks(2774), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 35, 898, DateTimeKind.Unspecified).AddTicks(4195), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 35, 898, DateTimeKind.Unspecified).AddTicks(4196), new TimeSpan(0, 7, 0, 0, 0)),
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 39, 960, DateTimeKind.Unspecified).AddTicks(2775), new TimeSpan(0, 7, 0, 0, 0)),
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 39, 960, DateTimeKind.Unspecified).AddTicks(2776), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 35, 898, DateTimeKind.Unspecified).AddTicks(4197), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 35, 898, DateTimeKind.Unspecified).AddTicks(4198), new TimeSpan(0, 7, 0, 0, 0)),
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         });
@@ -223,36 +223,36 @@ namespace Flower.Repositories.Migrations
                         {
                             Id = 1,
                             CategoryName = "Roses",
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2494), new TimeSpan(0, 7, 0, 0, 0)),
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2506), new TimeSpan(0, 7, 0, 0, 0))
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(338), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(351), new TimeSpan(0, 7, 0, 0, 0))
                         },
                         new
                         {
                             Id = 2,
                             CategoryName = "Lilies",
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2508), new TimeSpan(0, 7, 0, 0, 0)),
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2509), new TimeSpan(0, 7, 0, 0, 0))
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(358), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(359), new TimeSpan(0, 7, 0, 0, 0))
                         },
                         new
                         {
                             Id = 3,
                             CategoryName = "Tulips",
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2511), new TimeSpan(0, 7, 0, 0, 0)),
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2512), new TimeSpan(0, 7, 0, 0, 0))
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(361), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(362), new TimeSpan(0, 7, 0, 0, 0))
                         },
                         new
                         {
                             Id = 4,
                             CategoryName = "Sunflowers",
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2514), new TimeSpan(0, 7, 0, 0, 0)),
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2514), new TimeSpan(0, 7, 0, 0, 0))
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(365), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(365), new TimeSpan(0, 7, 0, 0, 0))
                         },
                         new
                         {
                             Id = 5,
                             CategoryName = "Orchids",
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2516), new TimeSpan(0, 7, 0, 0, 0)),
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2517), new TimeSpan(0, 7, 0, 0, 0))
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(509), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(510), new TimeSpan(0, 7, 0, 0, 0))
                         });
                 });
 
@@ -313,10 +313,10 @@ namespace Flower.Repositories.Migrations
                         {
                             Id = 1,
                             CategoryID = 1,
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2587), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(593), new TimeSpan(0, 7, 0, 0, 0)),
                             Description = "Classic red rose symbolizing love",
                             ImageURLs = "[\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest1.png?alt=media\\u0026token=0c05a2e7-869d-4e0c-98b2-41dd842fe90c\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest2.png?alt=media\\u0026token=cc65bd49-e3df-4a51-b513-c7bb534b63d4\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest3.png?alt=media\\u0026token=e239b164-1d55-437b-889d-19781c61a8b0\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest4.png?alt=media\\u0026token=1a0da7ef-2eb3-48e9-a9de-1e2866fe8752\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest5.png?alt=media\\u0026token=b2b2f296-f847-4c95-96d3-50ae7fc827a0\"]",
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2588), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(594), new TimeSpan(0, 7, 0, 0, 0)),
                             Name = "Red Rose",
                             Price = 100000m,
                             Stock = 100
@@ -325,10 +325,10 @@ namespace Flower.Repositories.Migrations
                         {
                             Id = 2,
                             CategoryID = 2,
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2591), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(599), new TimeSpan(0, 7, 0, 0, 0)),
                             Description = "Elegant white lily for sympathy and peace",
                             ImageURLs = "[\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest1.png?alt=media\\u0026token=0c05a2e7-869d-4e0c-98b2-41dd842fe90c\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest2.png?alt=media\\u0026token=cc65bd49-e3df-4a51-b513-c7bb534b63d4\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest3.png?alt=media\\u0026token=e239b164-1d55-437b-889d-19781c61a8b0\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest4.png?alt=media\\u0026token=1a0da7ef-2eb3-48e9-a9de-1e2866fe8752\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest5.png?alt=media\\u0026token=b2b2f296-f847-4c95-96d3-50ae7fc827a0\"]",
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2607), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(600), new TimeSpan(0, 7, 0, 0, 0)),
                             Name = "White Lily",
                             Price = 150000m,
                             Stock = 80
@@ -337,10 +337,10 @@ namespace Flower.Repositories.Migrations
                         {
                             Id = 3,
                             CategoryID = 3,
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2639), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(645), new TimeSpan(0, 7, 0, 0, 0)),
                             Description = "Bright and colorful tulips for any occasion",
                             ImageURLs = "[\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest1.png?alt=media\\u0026token=0c05a2e7-869d-4e0c-98b2-41dd842fe90c\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest2.png?alt=media\\u0026token=cc65bd49-e3df-4a51-b513-c7bb534b63d4\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest3.png?alt=media\\u0026token=e239b164-1d55-437b-889d-19781c61a8b0\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest4.png?alt=media\\u0026token=1a0da7ef-2eb3-48e9-a9de-1e2866fe8752\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest5.png?alt=media\\u0026token=b2b2f296-f847-4c95-96d3-50ae7fc827a0\"]",
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2640), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(646), new TimeSpan(0, 7, 0, 0, 0)),
                             Name = "Pink Tulip",
                             Price = 100000m,
                             Stock = 150
@@ -349,10 +349,10 @@ namespace Flower.Repositories.Migrations
                         {
                             Id = 4,
                             CategoryID = 4,
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2643), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(650), new TimeSpan(0, 7, 0, 0, 0)),
                             Description = "Cheerful sunflower for happy vibes",
                             ImageURLs = "[\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest1.png?alt=media\\u0026token=0c05a2e7-869d-4e0c-98b2-41dd842fe90c\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest2.png?alt=media\\u0026token=cc65bd49-e3df-4a51-b513-c7bb534b63d4\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest3.png?alt=media\\u0026token=e239b164-1d55-437b-889d-19781c61a8b0\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest4.png?alt=media\\u0026token=1a0da7ef-2eb3-48e9-a9de-1e2866fe8752\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest5.png?alt=media\\u0026token=b2b2f296-f847-4c95-96d3-50ae7fc827a0\"]",
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2644), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(651), new TimeSpan(0, 7, 0, 0, 0)),
                             Name = "Sunflower",
                             Price = 100000m,
                             Stock = 120
@@ -361,10 +361,10 @@ namespace Flower.Repositories.Migrations
                         {
                             Id = 5,
                             CategoryID = 5,
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2647), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(655), new TimeSpan(0, 7, 0, 0, 0)),
                             Description = "Delicate and exotic orchid",
                             ImageURLs = "[\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest1.png?alt=media\\u0026token=0c05a2e7-869d-4e0c-98b2-41dd842fe90c\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest2.png?alt=media\\u0026token=cc65bd49-e3df-4a51-b513-c7bb534b63d4\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest3.png?alt=media\\u0026token=e239b164-1d55-437b-889d-19781c61a8b0\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest4.png?alt=media\\u0026token=1a0da7ef-2eb3-48e9-a9de-1e2866fe8752\",\"https://firebasestorage.googleapis.com/v0/b/hairsalonamazing-14369.appspot.com/o/images%2Ftest5.png?alt=media\\u0026token=b2b2f296-f847-4c95-96d3-50ae7fc827a0\"]",
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 161, DateTimeKind.Unspecified).AddTicks(2647), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 146, DateTimeKind.Unspecified).AddTicks(656), new TimeSpan(0, 7, 0, 0, 0)),
                             Name = "Purple Orchid",
                             Price = 100000m,
                             Stock = 70
@@ -574,8 +574,8 @@ namespace Flower.Repositories.Migrations
                         {
                             Id = 1,
                             Address = "Lô E2a-7, Đường D1, Khu Công nghệ cao, P. Long Thạnh Mỹ, TP. Thủ Đức, TP.HCM",
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 39, 960, DateTimeKind.Unspecified).AddTicks(2503), new TimeSpan(0, 7, 0, 0, 0)),
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 39, 960, DateTimeKind.Unspecified).AddTicks(2514), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 35, 898, DateTimeKind.Unspecified).AddTicks(4043), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 35, 898, DateTimeKind.Unspecified).AddTicks(4052), new TimeSpan(0, 7, 0, 0, 0)),
                             Latitude = 10.841100000000001,
                             Longitude = 106.8095,
                             StoreName = "FPT University HCM Store"
@@ -742,18 +742,19 @@ namespace Flower.Repositories.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3bfc4172-e14a-4111-92b8-b592818c462a",
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 39, 960, DateTimeKind.Unspecified).AddTicks(2795), new TimeSpan(0, 7, 0, 0, 0)),
+                            ConcurrencyStamp = "5bf5c2b2-9418-4c62-8384-80b49f09ac7b",
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 35, 898, DateTimeKind.Unspecified).AddTicks(4216), new TimeSpan(0, 7, 0, 0, 0)),
                             Email = "admin@fpt.edu.vn",
                             EmailConfirmed = true,
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 39, 960, DateTimeKind.Unspecified).AddTicks(2796), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 35, 898, DateTimeKind.Unspecified).AddTicks(4216), new TimeSpan(0, 7, 0, 0, 0)),
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@FPT.EDU.VN",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEITBZ6KnZwjR459UJJ5zaQGeS+C6/uraA9+lZfM/5E3/hG/xAISEO/SmdBQ8TsiWIg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGfMJSSe3M1fF4+FCHNSYw3Pzr5G0cg/L7BBiuXM1q7uu8X1w7vfgXYdjlFcEF2rHA==",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            SecurityStamp = "7fbea38c-d568-497d-802e-ec01fc173c19",
+                            SecurityStamp = "28a1dd1a-d9dc-41c6-94d2-8945936a4745",
+                            Status = 1,
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
@@ -761,18 +762,19 @@ namespace Flower.Repositories.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4df577c2-2c40-4efd-aa64-d05a207ced50",
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 36, DateTimeKind.Unspecified).AddTicks(3144), new TimeSpan(0, 7, 0, 0, 0)),
+                            ConcurrencyStamp = "4da62f3d-76a6-4935-87fb-1fbe64334481",
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 35, 962, DateTimeKind.Unspecified).AddTicks(3657), new TimeSpan(0, 7, 0, 0, 0)),
                             Email = "user@fpt.edu.vn",
                             EmailConfirmed = true,
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 36, DateTimeKind.Unspecified).AddTicks(3193), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 35, 962, DateTimeKind.Unspecified).AddTicks(3706), new TimeSpan(0, 7, 0, 0, 0)),
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@FPT.EDU.VN",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBPDFjk/wcvPnf2egrNuPUOykOPL/i7nDIx0Xs4F/sifeOXYw7/FlZMzYUH/r3Kq0A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHxwoxFmLptXSaBRwRyk6gApInn7tc5M+Lx+HGWLV4p+TC4On3li79oOdUj1uNzcIw==",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            SecurityStamp = "c424b1c0-2d00-4e5a-8fce-e4e335b2dadf",
+                            SecurityStamp = "b298659f-c9fc-4448-a94d-77df54677651",
+                            Status = 1,
                             TwoFactorEnabled = false,
                             UserName = "user"
                         },
@@ -780,18 +782,19 @@ namespace Flower.Repositories.Migrations
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cd1050a4-71e4-40e6-8d29-f01f0010399e",
-                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 102, DateTimeKind.Unspecified).AddTicks(2555), new TimeSpan(0, 7, 0, 0, 0)),
+                            ConcurrencyStamp = "2e2e3b70-066a-4f44-9162-45e8cd19b81d",
+                            CreatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 47, DateTimeKind.Unspecified).AddTicks(2469), new TimeSpan(0, 7, 0, 0, 0)),
                             Email = "staff@fpt.edu.vn",
                             EmailConfirmed = true,
-                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 4, 13, 31, 40, 102, DateTimeKind.Unspecified).AddTicks(2612), new TimeSpan(0, 7, 0, 0, 0)),
+                            LastUpdatedTime = new DateTimeOffset(new DateTime(2025, 6, 7, 16, 7, 36, 47, DateTimeKind.Unspecified).AddTicks(2519), new TimeSpan(0, 7, 0, 0, 0)),
                             LockoutEnabled = false,
                             NormalizedEmail = "STAFF@FPT.EDU.VN",
                             NormalizedUserName = "STAFF",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFBO3hP11iKVWsACVTEqp9U9NoQ/Ts4Oarm0bJFxOIFl3HtuhaVAJU5phawIunUFLg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEz3GES7Lvh07YmolDO8QR8/P4jfrAfVsCAN83KSN5bCKznBmNDLOogbJwmRpK7bpg==",
                             PhoneNumberConfirmed = false,
                             RefreshTokenExpiryTime = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            SecurityStamp = "ddf4fb14-f4f5-4fd0-8b41-f1ecd48bdd12",
+                            SecurityStamp = "e45cc26d-b988-4f68-ae7e-30bd5443d904",
+                            Status = 1,
                             TwoFactorEnabled = false,
                             UserName = "staff"
                         });

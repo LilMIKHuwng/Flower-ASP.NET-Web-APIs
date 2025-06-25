@@ -103,5 +103,34 @@ namespace FlowerBE.API.Controllers
                 return BadRequest(new Flower.Core.APIResponse.ApiErrorResult<object>(ex.Message));
             }
         }
+
+
+        [HttpGet("get-all-users")]
+        public async Task<ActionResult<string>> GetAllUsers()
+        {
+            try
+            {
+                var result = await _userService.GetAllUsers();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new Flower.Core.APIResponse.ApiErrorResult<object>(ex.Message));
+            }
+        }
+
+        [HttpGet("get-all-admins")]
+        public async Task<ActionResult<string>> GetAllAdmins()
+        {
+            try
+            {
+                var result = await _userService.GetAllAdmins();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new Flower.Core.APIResponse.ApiErrorResult<object>(ex.Message));
+            }
+        }
     }
 }

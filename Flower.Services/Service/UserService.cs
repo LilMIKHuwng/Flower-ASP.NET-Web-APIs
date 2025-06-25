@@ -270,6 +270,82 @@ namespace Flower.Services.Service
 
         }
 
-        
+
+
+
+        public async Task<ApiResult<List<UserListModelView>>> GetAllUsers()
+        {
+            try
+            {
+                var users = await _userManager.Users
+                    .Where(u => u.DeletedTime == null) // Only get non-deleted users
+                    .Include(u => u.UserRoles)
+                    .ThenInclude(ur => ur.Role)
+                    .Where(u => u.UserRoles.Any(ur => ur.Role.Name == "User"))
+                    .ToListAsync();
+
+                var userList = users.Select(user => new UserListModelView
+                {
+                    Id = user.Id,
+                    Username = user.UserName,
+                    FullName = user.FullName,
+                    Age = user.Age,
+                    AvatarUrl = user.AvatarUrl,
+                    Email = user.Email,
+                    Status = user.Status,
+                    CreatedTime = user.CreatedTime,
+                    LastUpdatedTime = user.LastUpdatedTime,
+                    Role = new ModelViews.RoleModelViews.RoleModelView
+                    {
+                        Id = user.UserRoles.FirstOrDefault()?.RoleId ?? 0,
+                        Name = user.UserRoles.FirstOrDefault()?.Role?.Name ?? "Unknown"
+                    }
+                }).ToList();
+
+                return new ApiSuccessResult<List<UserListModelView>>(userList, "Lấy danh sách người dùng thành công");
+            }
+            catch (Exception ex)
+            {
+                return new ApiErrorResult<List<UserListModelView>>($"Lỗi khi lấy danh sách người dùng: {ex.Message}");
+            }
+        }
+
+        public async Task<ApiResult<List<UserListModelView>>> GetAllAdmins()
+        {
+            try
+            {
+                var adminUsers = await _userManager.Users
+                    .Where(u => u.DeletedTime == null)
+                    .Include(u => u.UserRoles)
+                    .ThenInclude(ur => ur.Role)
+                    .Where(u => u.UserRoles.Any(ur => ur.Role.Name == "Admin"))
+                    .ToListAsync();
+
+                var adminList = adminUsers.Select(user => new UserListModelView
+                {
+                    Id = user.Id,
+                    Username = user.UserName,
+                    FullName = user.FullName,
+                    Age = user.Age,
+                    AvatarUrl = user.AvatarUrl,
+                    Email = user.Email,
+                    Status = user.Status,
+                    CreatedTime = user.CreatedTime,
+                    LastUpdatedTime = user.LastUpdatedTime,
+                    Role = new ModelViews.RoleModelViews.RoleModelView
+                    {
+                        Id = user.UserRoles.FirstOrDefault()?.RoleId ?? 0,
+                        Name = user.UserRoles.FirstOrDefault()?.Role?.Name ?? "Unknown"
+                    }
+                }).ToList();
+
+                return new ApiSuccessResult<List<UserListModelView>>(adminList, "Lấy danh sách quản trị viên thành công");
+            }
+            catch (Exception ex)
+            {
+                return new ApiErrorResult<List<UserListModelView>>($"Lỗi khi lấy danh sách quản trị viên: {ex.Message}");
+            }
+        }
+
     }
 }

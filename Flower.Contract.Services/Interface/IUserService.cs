@@ -18,5 +18,9 @@ namespace Flower.Contract.Services.Interface
         Task<ApiResult<object>> ResetPassword(UserResetPasswordModelView userResetPasswordDTO);
         Task<ApiResult<bool>> UpdateUserProfile(UserUpdateProfileModelView updateDTO);
 
+
+        Task<ApiResult<List<UserListModelView>>> GetAllUsers();
+        Task<ApiResult<List<UserListModelView>>> GetAllAdmins();
+
     }
 }

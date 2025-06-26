@@ -89,5 +89,18 @@ namespace TeamUp.API.Controllers
                 return BadRequest(new ApiErrorResult<List<PaymentModelView>>(ex.Message));
             }
         }
+        [HttpPost("update-status")]
+        public async Task<ActionResult<ApiResult<string>>> UpdatePaymentStatus([FromBody] UpdatePaymentStatusModel model)
+        {
+            try
+            {
+                var result = await _paymentService.UpdatePaymentStatusAsync(model);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ApiErrorResult<string>(ex.Message));
+            }
+        }
     }
 }

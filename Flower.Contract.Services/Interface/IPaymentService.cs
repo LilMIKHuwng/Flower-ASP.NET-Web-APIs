@@ -12,9 +12,10 @@ namespace Flower.Contract.Services.Interface
 {
     public interface IPaymentService
     {
-        Task<ApiResult<string>> CreateVNPayPaymentUrlAsync(CreatePaymentModelView model, string ipAddress);
+        Task<ApiResult<CreatePaymentResponseModel>> CreateVNPayPaymentUrlAsync(CreatePaymentModelView model, string ipAddress);
         Task<ApiResult<string>> HandleVNPayReturnAsync(IQueryCollection vnpParams);
         Task<ApiResult<PaymentModelView>> GetPaymentByIdAsync(int id);
         Task<ApiResult<BasePaginatedList<PaymentModelView>>> GetAllPaymentsAsync(int pageNumber, int pageSize, int? userId);
+        Task<ApiResult<string>> UpdatePaymentStatusAsync(UpdatePaymentStatusModel model);
     }
 }

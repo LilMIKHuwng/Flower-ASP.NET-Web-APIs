@@ -46,11 +46,11 @@ namespace TeamUp.Services.Service
             _vnpay.Initialize(_tmnCode, _hashSecret, _baseUrl, _callbackUrl);
         }
 
-        public async Task<ApiResult<string>> CreateVNPayPaymentUrlAsync(CreatePaymentModelView model, string ipAddress)
+        public async Task<ApiResult<CreatePaymentResponseModel>> CreateVNPayPaymentUrlAsync(CreatePaymentModelView model, string ipAddress)
         {
             // Kiểm tra dữ liệu
             if (model.OrderID == null)
-                return new ApiErrorResult<string>("Invalid payment information");
+                return new ApiErrorResult<CreatePaymentResponseModel>("Invalid payment information");
 
             decimal amount = 0;
             string description = null;
@@ -61,12 +61,30 @@ namespace TeamUp.Services.Service
                     .Entities.FirstOrDefaultAsync(x => x.Id == model.OrderID && !x.DeletedTime.HasValue);
 
                 if (order == null)
-                    return new ApiErrorResult<string>("Không tìm hóa đơn.");
+                    return new ApiErrorResult<CreatePaymentResponseModel>("Không tìm hóa đơn.");
 
                 amount = order.TotalAmount;
                 description = $"Thanh toán hóa đơn |{order.Id}|{order.UserID}";
             }
+            var order_EX = await _unitOfWork.GetRepository<Order>()
+       .Entities.FirstOrDefaultAsync(x => x.Id == model.OrderID && !x.DeletedTime.HasValue);
 
+            if (order_EX == null)
+                return new ApiErrorResult<CreatePaymentResponseModel>("Không tìm thấy hóa đơn.");
+
+            var payment = new Payment
+            {
+                CreatedTime = DateTime.Now,
+                CreatedBy = order_EX.UserID,
+                PaymentMethod = "VNPay",
+                OrderID = order_EX.Id,
+                PaymentDate = DateTime.Now,
+                PaymentStatus = "Pending",
+                Amount = order_EX.TotalAmount
+            };
+
+            await _unitOfWork.GetRepository<Payment>().InsertAsync(payment);
+            await _unitOfWork.SaveAsync();
             var request = new PaymentRequest
             {
                 PaymentId = DateTime.Now.Ticks,
@@ -80,8 +98,51 @@ namespace TeamUp.Services.Service
             };
 
             string paymentUrl = _vnpay.GetPaymentUrl(request);
-            return new ApiSuccessResult<string>(paymentUrl);
+
+            return new ApiSuccessResult<CreatePaymentResponseModel>(new CreatePaymentResponseModel
+            {
+                PaymentUrl = paymentUrl,
+                PaymentId = payment.Id
+            });
+
         }
+        public async Task<ApiResult<string>> UpdatePaymentStatusAsync(UpdatePaymentStatusModel model)
+        {
+            _unitOfWork.BeginTransaction();
+
+            try
+            {
+                var paymentRepo = _unitOfWork.GetRepository<Payment>();
+                var orderRepo = _unitOfWork.GetRepository<Order>();
+
+                var payment = await paymentRepo.GetByIdAsync(model.PaymentId);
+                if (payment == null)
+                    return new ApiErrorResult<string>("Không tìm thấy thanh toán.");
+
+                payment.PaymentStatus = model.IsSuccess ? "Success" : "Failed";
+                payment.PaymentDate = DateTime.Now;
+
+                await paymentRepo.UpdateAsync(payment);
+
+                var order = await orderRepo.GetByIdAsync(payment.OrderID);
+                if (order != null)
+                {
+                    order.Status = model.IsSuccess ? "Paid" : "Failed";
+                    await orderRepo.UpdateAsync(order);
+                }
+
+                await _unitOfWork.SaveAsync();
+                _unitOfWork.CommitTransaction();
+
+                return new ApiSuccessResult<string>("Cập nhật trạng thái thanh toán thành công.");
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.RollBack();
+                return new ApiErrorResult<string>($"Lỗi khi cập nhật: {ex.Message}");
+            }
+        }
+
 
         public async Task<ApiResult<string>> HandleVNPayReturnAsync(IQueryCollection vnpParams)
         {
@@ -123,6 +184,7 @@ namespace TeamUp.Services.Service
                 await _unitOfWork.GetRepository<Payment>().InsertAsync(payment);
                 await _unitOfWork.SaveAsync();
                 _unitOfWork.CommitTransaction();
+
 
                 return new ApiSuccessResult<string>("Thanh toán thành công.");
             }

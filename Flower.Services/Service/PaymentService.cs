@@ -145,7 +145,7 @@ namespace TeamUp.Services.Service
                             return new ApiErrorResult<string>($"Hoa '{flower.Name}' không đủ tồn kho. Còn lại: {flower.Stock}.");
 
                         flower.Stock -= detail.Quantity;
-                        _unitOfWork.GetRepository<FlowerType>().Update(flower);
+                        await _unitOfWork.GetRepository<FlowerType>().UpdateAsync(flower);
                     }
                 }
 

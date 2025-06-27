@@ -7,6 +7,7 @@ using Flower.ModelViews.OrderDetailModelViews;
 using Flower.ModelViews.OrderModelViews;
 using Flower.ModelViews.PaymentModelViews;
 using Flower.ModelViews.RoleModelViews;
+using Flower.ModelViews.StoreModelViews;
 using Flower.ModelViews.UserMessage;
 using Flower.ModelViews.UserModelViews;
 using Flower.Repositories.Entity;
@@ -54,6 +55,9 @@ namespace Flower.Repositories.Mapper
             //Payment
             CreateMap<Payment, PaymentModelView>().ReverseMap();
             CreateMap<Payment, CreatePaymentModelView>().ReverseMap();
+
+            //Store
+            CreateMap<Store, StoreModelView>().ReverseMap();
 
         }
     }

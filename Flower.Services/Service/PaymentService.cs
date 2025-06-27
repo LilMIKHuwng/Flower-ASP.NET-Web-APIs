@@ -83,6 +83,8 @@ namespace TeamUp.Services.Service
                 Amount = order_EX.TotalAmount
             };
 
+            description = description + $"|{payment.Id}";
+
             await _unitOfWork.GetRepository<Payment>().InsertAsync(payment);
             await _unitOfWork.SaveAsync();
             var request = new PaymentRequest
@@ -129,6 +131,22 @@ namespace TeamUp.Services.Service
                 {
                     order.Status = model.IsSuccess ? "Paid" : "Failed";
                     await orderRepo.UpdateAsync(order);
+                }
+
+                if (model.IsSuccess)
+                {
+                    foreach (var detail in order.OrderDetails)
+                    {
+                        var flower = await _unitOfWork.GetRepository<FlowerType>().GetByIdAsync(detail.FlowerID);
+                        if (flower == null)
+                            return new ApiErrorResult<string>($"Không tìm thấy hoa với ID {detail.FlowerID}.");
+
+                        if (flower.Stock < detail.Quantity)
+                            return new ApiErrorResult<string>($"Hoa '{flower.Name}' không đủ tồn kho. Còn lại: {flower.Stock}.");
+
+                        flower.Stock -= detail.Quantity;
+                        _unitOfWork.GetRepository<FlowerType>().Update(flower);
+                    }
                 }
 
                 await _unitOfWork.SaveAsync();

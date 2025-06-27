@@ -64,6 +64,7 @@ namespace FlowerBE.API
                 .AddScoped<IOrderDetailService, OrderDetailService>()
                 .AddScoped<IPaymentService, PaymentService>()
                 .AddScoped<IVnpay, Vnpay>()
+                .AddScoped<IStoreService, StoreService>()
                 .AddScoped<IUserService, UserService>();
         }
 

@@ -86,10 +86,6 @@ namespace Flower.Services.Service
 
                 order.TotalAmount += detail.TotalPrice;
                 await orderDetailRepo.InsertAsync(detail);
-
-                // Giảm tồn kho tương ứng
-                item.Flower.Stock -= item.Quantity;
-                await flowerRepo.UpdateAsync(item.Flower);
             }
 
             await orderRepo.UpdateAsync(order);

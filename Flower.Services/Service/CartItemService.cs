@@ -66,25 +66,48 @@ namespace Flower.Services.Service
 
         public async Task<ApiResult<object>> AddCartItemAsync(CreateCartItemModelView model)
         {
-            var repo = _unitOfWork.GetRepository<FlowerType>();
-            var flower = await repo.Entities.FirstOrDefaultAsync(c => c.Id == model.FlowerID);
+            var flowerRepo = _unitOfWork.GetRepository<FlowerType>();
+            var flower = await flowerRepo.Entities.FirstOrDefaultAsync(c => c.Id == model.FlowerID);
 
             if (flower == null)
                 return new ApiErrorResult<object>("Không tìm thấy loại hoa tương ứng với giỏ hàng.");
 
-            if (flower.Stock < model.Quantity)
+            var cartItemRepo = _unitOfWork.GetRepository<CartItem>();
+            var existingItem = await cartItemRepo.Entities
+                .FirstOrDefaultAsync(c => c.UserID == model.UserID && c.FlowerID == model.FlowerID);
+
+            int totalRequestedQuantity = model.Quantity;
+            if (existingItem != null)
+            {
+                totalRequestedQuantity += existingItem.Quantity;
+            }
+
+            if (flower.Stock < totalRequestedQuantity)
             {
                 return new ApiErrorResult<object>($"Số lượng tồn kho không đủ. Hiện còn lại {flower.Stock} sản phẩm.");
             }
 
-            var newItem = _mapper.Map<CartItem>(model);
-            newItem.AddedAt = DateTime.Now;
-            newItem.UnitPrice = flower.Price;
+            if (existingItem != null)
+            {
+                existingItem.Quantity += model.Quantity;
+                existingItem.AddedAt = DateTime.Now;
+                existingItem.UnitPrice = flower.Price;
+                existingItem.LastUpdatedBy = model.UserID;
+                existingItem.LastUpdatedTime = DateTime.Now;
 
-            newItem.CreatedBy = model.UserID;
-            newItem.CreatedTime = DateTime.Now;
+                cartItemRepo.Update(existingItem);
+            }
+            else
+            {
+                var newItem = _mapper.Map<CartItem>(model);
+                newItem.AddedAt = DateTime.Now;
+                newItem.UnitPrice = flower.Price;
+                newItem.CreatedBy = model.UserID;
+                newItem.CreatedTime = DateTime.Now;
 
-            await _unitOfWork.GetRepository<CartItem>().InsertAsync(newItem);
+                await cartItemRepo.InsertAsync(newItem);
+            }
+
             await _unitOfWork.SaveAsync();
 
             return new ApiSuccessResult<object>("Thêm mục vào giỏ hàng thành công.");

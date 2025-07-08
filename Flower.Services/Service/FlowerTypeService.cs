@@ -157,46 +157,74 @@ namespace Flower.Services.Service
         {
             try
             {
-                var flowerType = await _unitOfWork.GetRepository<FlowerType>().Entities.FirstOrDefaultAsync(x => x.Id == model.Id && x.DeletedTime == null);
+                var repo = _unitOfWork.GetRepository<FlowerType>();
+                var flowerType = await repo.Entities
+                    .FirstOrDefaultAsync(x => x.Id == model.Id && x.DeletedTime == null);
+
                 if (flowerType == null)
                     return new ApiErrorResult<object>("Flower type not found.");
 
-                if (string.IsNullOrWhiteSpace(model.Name))
-                    return new ApiErrorResult<object>("Flower type name is required.");
+                /* ------- 1. Name ------- */
+                if (model.Name != null)           // Chỉ xét khi người dùng gửi Name
+                {
+                    if (string.IsNullOrWhiteSpace(model.Name))
+                        return new ApiErrorResult<object>("Flower type name is required.");
+                    flowerType.Name = model.Name;
+                }
 
-                if (model.Price < 0)
-                    return new ApiErrorResult<object>("Price cannot be negative.");
+                /* ------- 2. Price ------- */
+                if (model.Price.HasValue)
+                {
+                    if (model.Price.Value < 0)
+                        return new ApiErrorResult<object>("Price cannot be negative.");
+                    flowerType.Price = model.Price.Value;
+                }
 
-                if (model.Stock < 0)
-                    return new ApiErrorResult<object>("Stock cannot be negative.");
+                /* ------- 3. Stock ------- */
+                if (model.Stock.HasValue)
+                {
+                    if (model.Stock.Value < 0)
+                        return new ApiErrorResult<object>("Stock cannot be negative.");
+                    flowerType.Stock = model.Stock.Value;
+                }
 
+                /* ------- 4. Category ------- */
                 if (model.CategoryID.HasValue)
                 {
-                    var category = await _unitOfWork.GetRepository<Category>().Entities.FirstOrDefaultAsync(x => x.Id == model.CategoryID.Value && x.DeletedTime == null);
+                    var category = await _unitOfWork.GetRepository<Category>().Entities
+                        .FirstOrDefaultAsync(x => x.Id == model.CategoryID && x.DeletedTime == null);
+
                     if (category == null)
                         return new ApiErrorResult<object>("Category not found.");
+
+                    flowerType.CategoryID = model.CategoryID;
                 }
 
-                var imageUrls = flowerType.ImageURLs ?? new List<string>();
+                /* ------- 5. Description ------- */
+                if (model.Description != null)
+                    flowerType.Description = model.Description;
+
+                /* ------- 6. ImageURLs – Ghi đè hoàn toàn ------- */
                 if (model.ImageURLs != null && model.ImageURLs.Any())
                 {
-                    foreach (var image in model.ImageURLs)
+                    var newUrls = new List<string>();
+
+                    foreach (var file in model.ImageURLs)
                     {
-                        var uploadResult = await Flower.Core.Firebase.ImageHelper.Upload(image);
-                        if (uploadResult != null)
-                            imageUrls.Add(uploadResult.ToString());
+                        var upload = await Flower.Core.Firebase.ImageHelper.Upload(file);
+                        if (upload != null)
+                            newUrls.Add(upload.ToString());
                     }
+
+                    // Chỉ ghi đè nếu upload thành công ít nhất 1 hình
+                    if (newUrls.Any())
+                        flowerType.ImageURLs = newUrls;
                 }
 
-                flowerType.Name = model.Name;
-                flowerType.Description = model.Description;
-                flowerType.Price = model.Price;
-                flowerType.Stock = model.Stock;
-                flowerType.ImageURLs = imageUrls;
-                flowerType.CategoryID = model.CategoryID;
+                /* ------- 7. Hoàn tất ------- */
                 flowerType.LastUpdatedTime = DateTimeOffset.Now;
 
-                await _unitOfWork.GetRepository<FlowerType>().UpdateAsync(flowerType);
+                await repo.UpdateAsync(flowerType);
                 await _unitOfWork.SaveAsync();
 
                 return new ApiSuccessResult<object>("Flower type updated successfully.");
@@ -206,6 +234,7 @@ namespace Flower.Services.Service
                 return new ApiErrorResult<object>(ex.Message);
             }
         }
+
 
         public async Task<ApiResult<object>> DeleteFlowerType(int id)
         {
